@@ -1,0 +1,2 @@
+# GenericModuleRouter
+泛化模块路由，支持在各种SDK产品中使用（源码拷贝更新applicationId即可，内部可自由增加订制化内容）
