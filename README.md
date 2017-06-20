@@ -9,6 +9,9 @@
  2. 此模块只有Jar包，不用在manifet声明任何组件，直接使用即可，无任何依赖。
  - 一切目标为了精简，适合SDK产品使用
  
+ ## 整体架构参照
+ 
+ ![alt arch](route-arch.png)
 
 ## 使用方式
 
@@ -20,7 +23,9 @@
 - RouterRequest：调用Action时的请求信息
 - RouterResponse：Action调用完成之后的响应信息
 - LocalRouter：单进程本地局域路由器
+
 ### 1.在Application oncreate中初始化Router
+
         // 注册Router
         RouterManager.getInstance().registerApplicationLogic(MainApplicationLogic.class);
         RouterManager.getInstance().registerApplicationLogic(WebApplicationLogic.class);
@@ -28,7 +33,9 @@
         RouterManager.getInstance().registerApplicationLogic(PicApplicationLogic.class);
         // 初始化Router
         RouterManager.getInstance().init(this);
+
 ###2. 创建自定义ApplicationLogic
+
         public class CustomApplicationLogic extends BaseApplicationLogic {
             @Override
             public void onCreate() {
@@ -36,13 +43,16 @@
                 LocalRouter.getInstance(mApplication).registerProvider("util",new UtilProvider());
             }
             }
+
 ###3. 创建Provider
+
         public class UtilProvider extends MaProvider {
             @Override
             protected void registerActions() {
                 registerAction("md5",new MD5EncryptAction());
             }
         }
+
 ###4.实现Action
         
         public class PlayAction implements RouterAction {
@@ -60,6 +70,7 @@
             }
         
         }
+
 ###5.调用
         RouterManager.getInstance().route(context, routerRequestBuilder);
 ## Other
