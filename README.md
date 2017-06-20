@@ -34,7 +34,7 @@
         // 初始化Router
         RouterManager.getInstance().init(this);
 
-###2. 创建自定义ApplicationLogic
+### 2. 创建自定义ApplicationLogic
 
         public class CustomApplicationLogic extends BaseApplicationLogic {
             @Override
@@ -44,7 +44,7 @@
             }
             }
 
-###3. 创建Provider
+### 3. 创建Provider
 
         public class UtilProvider extends MaProvider {
             @Override
@@ -53,7 +53,7 @@
             }
         }
 
-###4.实现Action
+### 4.实现Action
         
         public class PlayAction implements RouterAction {
         
@@ -71,7 +71,7 @@
         
         }
 
-###5.调用
+### 5.调用
         RouterManager.getInstance().route(context, routerRequestBuilder);
 ## Other
 参照ModularizationArchitecture，有兴趣的参见如下传送门
